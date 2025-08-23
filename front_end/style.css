@@ -1,0 +1,108 @@
+
+    .title {
+    font-family: 'Arial', sans-serif;  /* Choose a nice font */
+    font-size: 3rem;                  /* Large size for emphasis */
+    color: #ff6600;                   /* Bright color */
+    text-align: center;               /* Center the text */
+    text-transform: uppercase;        /* Make all letters uppercase */
+    letter-spacing: 3px;              /* Space between letters */
+    text-shadow: 2px 2px 5px #888;   /* Shadow effect for depth */
+    transition: transform 0.3s;       /* Smooth animation on hover */
+}
+
+.title:hover {
+    transform: scale(1.1);            /* Slightly enlarge on hover */
+    color: #0066ff;                   /* Change color when hovered */
+}
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+    }
+
+    header {
+      background: rgb(2, 1, 29);
+      color: rgb(255, 255, 255);
+      padding: 15px 0;
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    nav {
+      background: #5e3434;
+    }
+
+    nav ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      justify-content: center;
+    }
+
+    nav ul li {
+      position: relative;
+    }
+
+    nav ul li a {
+      display: block;
+      padding: 15px 20px;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav ul li a:hover {
+      background: #1abc9c;
+    }
+
+    /* Dropdown */
+    nav ul li ul {
+      display: none;
+      position: absolute;
+      top: 50px;
+      left: 0;
+      background: #34495e;
+      padding: 0;
+      list-style: none;
+      min-width: 180px;
+    }
+
+    nav ul li ul li a {
+      padding: 10px 20px;
+      font-weight: normal;
+    }
+
+    nav ul li:hover ul {
+      display: block;
+    }
+
+    /* Page Content */
+    .content {
+      padding: 30px;
+      text-align: center;
+    }
+    .video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1; /* Keeps video behind content */
+  }
+
+  .video-background iframe {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 120%;  /* Zoom in video */
+  height: 120%; /* Zoom in video */
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+
+  

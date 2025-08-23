@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discover Ethiopia Registration</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .country-select {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%236b7280'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 0.5rem center;
+            background-size: 1.5em 1.5em;
+        }
+        .password-strength {
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen flex items-center justify-center p-4">
+    <div class="max-w-4xl w-full bg-white rounded-2xl shadow-2xl overflow-hidden">
+        <div class="md:flex">
+            <!-- Left Side - Lalibela Church Image -->
+            <div class="md:w-1/2 bg-gradient-to-br from-amber-600 to-orange-700 p-8 text-white hidden md:flex flex-col justify-center">
+                <div class="text-center">
+                    <div class="mb-8">
+                        <img src="lalibela.jpg" alt="Ancient rock-hewn Church of Saint George in Lalibela, Ethiopia carved from solid volcanic rock in cross shape with intricate architectural details and Ethiopian Orthodox religious symbolism" class="mx-auto rounded-lg shadow-lg w-full h-64 object-cover" />
+                    </div>
+                    <h2 class="text-2xl font-bold mb-4">Join Our Discover Ethiopia Community</h2>
+                    <p class="text-amber-100">Connect with travelers from around the world and discover the ancient wonders of Ethiopian culture and heritage.</p>
+                    <div class="mt-6 bg-amber-800 bg-opacity-50 p-4 rounded-lg">
+                        <h3 class="font-semibold mb-2">About Lalibela</h3>
+                        <p class="text-sm text-amber-200">The 11 rock-hewn churches of Lalibela are UNESCO World Heritage sites dating back to the 12th century, representing one of Christianity's most sacred sites.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Side - Registration Form -->
+            <div class="md:w-1/2 p-8">
+                <div class="text-center mb-8">
+                    <h1 class="text-3xl font-bold text-gray-800 mb-2">Create Account</h1>
+                    <p class="text-gray-600">Join travelers from around the world</p>
+                </div>
+
+                <form id="registrationForm" class="space-y-6">
+                    <!-- Name Section -->
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">First Name *</label>
+                            <input type="text" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200" placeholder="Enter your first name">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Last Name *</label>
+                            <input type="text" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200" placeholder="Enter your last name">
+                        </div>
+                    </div>
+
+                    <!-- Email -->
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Email Address *</label>
+                        <input type="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200" placeholder="your.email@example.com">
+                    </div>
+
+                    <!-- Password -->
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Password *</label>
+                        <input type="password" id="password" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200" placeholder="Create a strong password">
+                        <div id="passwordStrength" class="mt-2 h-1 bg-gray-200 rounded-full overflow-hidden">
+                            <div class="h-full bg-red-500 w-0 transition-all duration-300"></div>
+                        </div>
+                        <p class="text-xs text-gray-500 mt-1">Use at least 8 characters with uppercase, lowercase, and numbers</p>
+                    </div>
+
+                    <!-- Country and Travel Preferences -->
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Country of Origin *</label>
+                            <select required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent country-select appearance-none">
+                                <option value="in">India</option>
+                                <option value="cn">China</option>
+<option value="jp">Japan</option>
+<option value="in">India</option> <!-- duplicate example; replace as needed -->
+<option value="pk">Pakistan</option>
+<option value="bd">Bangladesh</option>
+<option value="id">Indonesia</option>
+<option value="kr">South Korea</option>
+<option value="vn">Vietnam</option>
+<option value="ph">Philippines</option>
+<option value="za">South Africa</option> <!-- Note: Common usage for Southern Africa -->
+<option value="ng">Nigeria</option>
+<option value="et">Ethiopia</option>
+<option value="ke">Kenya</option>
+<option value="gh">Ghana</option>
+<option value="ug">Uganda</option>
+<option value="tz">Tanzania</option>
+<option value="eg">Egypt</option>
+<option value="dz">Algeria</option>
+<option value="ma">Morocco</option>
+<option value="de">Germany</option>
+<option value="fr">France</option>
+<option value="gb">United Kingdom</option>
+<option value="it">Italy</option>
+<option value="es">Spain</option>
+<option value="se">Sweden</option>
+<option value="no">Norway</option>
+<option value="nl">Netherlands</option>
+<option value="be">Belgium</option>
+<option value="ch">Switzerland</option>
+<option value="us">United States</option>
+<option value="ca">Canada</option>
+<option value="MX">Mexico</option> <!-- Note: code should be lowercase; fix to "mx" -->
+<option value="au">Australia</option>
+<option value="nz">New Zealand</option>
+<option value="fj">Fiji</option>
+<option value="ws">Samoa</option>
+<option value="br">Brazil</option>
+<option value="ar">Argentina</option>
+<option value="cl">Chile</option>
+<option value="co">Colombia</option>
+<option value="pe">Peru</option>
+<option value="ve">Venezuela</option>
+<option value="ax">Åland Islands</option>
+<option value="eu">European Union</option>
+<option value="gb-sct">Scotland (part of UK)</option> <!-- non-standard code; consider sticking to alpha-2 -->
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Travel Interest</label>
+                            <select class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent country-select appearance-none">
+                                <option value="cultural">Cultural Heritage</option>
+                                <option value="religious">Religious Pilgrimage</option>
+                                <option value="adventure">Adventure Travel</option>
+                                <option value="photography">Photography</option>
+                                <option value="history">Historical Sites</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Phone Number -->
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Phone Number (Optional)</label>
+                        <div class="flex">
+                            <select class="w-1/4 px-3 py-3 border border-gray-300 rounded-l-lg border-r-0 country-select appearance-none">
+                               <option value="+91">+91 IN</option> <!-- India -->
+<option value="+86">+86 CN</option> <!-- China -->
+<option value="+81">+81 JP</option> <!-- Japan -->
+<option value="+91">+91 IN</option> <!-- India (duplicate) -->
+<option value="+92">+92 PK</option> <!-- Pakistan -->
+<option value="+880">+880 BD</option> <!-- Bangladesh -->
+<option value="+62">+62 ID</option> <!-- Indonesia -->
+<option value="+82">+82 KR</option> <!-- South Korea -->
+<option value="+84">+84 VN</option> <!-- Vietnam -->
+<option value="+63">+63 PH</option> <!-- Philippines -->
+<option value="+27">+27 ZA</option> <!-- South Africa -->
+<option value="+234">+234 NG</option> <!-- Nigeria -->
+<option value="+251">+251 ET</option> <!-- Ethiopia -->
+<option value="+254">+254 KE</option> <!-- Kenya -->
+<option value="+233">+233 GH</option> <!-- Ghana -->
+<option value="+256">+256 UG</option> <!-- Uganda -->
+<option value="+255">+255 TZ</option> <!-- Tanzania -->
+<option value="+20">+20 EG</option> <!-- Egypt -->
+<option value="+213">+213 DZ</option> <!-- Algeria -->
+<option value="+212">+212 MA</option> <!-- Morocco -->
+<option value="+49">+49 DE</option> <!-- Germany -->
+<option value="+33">+33 FR</option> <!-- France -->
+<option value="+44">+44 GB</option> <!-- United Kingdom -->
+<option value="+39">+39 IT</option> <!-- Italy -->
+<option value="+34">+34 ES</option> <!-- Spain -->
+<option value="+46">+46 SE</option> <!-- Sweden -->
+<option value="+47">+47 NO</option> <!-- Norway -->
+<option value="+31">+31 NL</option> <!-- Netherlands -->
+<option value="+32">+32 BE</option> <!-- Belgium -->
+<option value="+41">+41 CH</option> <!-- Switzerland -->
+<option value="+1">+1 US</option> <!-- United States -->
+<option value="+1">+1 CA</option> <!-- Canada -->
+<option value="+52">+52 MX</option> <!-- Mexico -->
+<option value="+61">+61 AU</option> <!-- Australia -->
+<option value="+64">+64 NZ</option> <!-- New Zealand -->
+<option value="+678">+678 FJ</option> <!-- Fiji -->
+<option value="+685">+685 WS</option> <!-- Samoa -->
+<option value="+55">+55 BR</option> <!-- Brazil -->
+<option value="+54">+54 AR</option> <!-- Argentina -->
+<option value="+56">+56 CL</option> <!-- Chile -->
+<option value="+57">+57 CO</option> <!-- Colombia -->
+<option value="+51">+51 PE</option> <!-- Peru -->
+<option value="+58">+58 VE</option> <!-- Venezuela -->
+<option value="+358">+358 AX</option> <!-- Åland Islands -->
+<option value="+358">+358 EU</option> <!-- European Union -->
+<option value="+44">+44 GB-SCT</option> <!-- Scotland (part of UK) -->
+                            </select>
+                            <input type="tel" class="w-3/4 px-4 py-3 border border-gray-300 rounded-r-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Phone number">
+                        </div>
+                    </div>
+
+                    <!-- Travel Preferences -->
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Travel Preferences (Optional)</label>
+                        <div class="grid grid-cols-2 md:grid-cols-3 gap-2">
+                            <label class="flex items-center">
+                                <input type="checkbox" class="rounded text-blue-600 focus:ring-blue-500">
+                                <span class="ml-2 text-sm">Historical Sites</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" class="rounded text-blue-600 focus:ring-blue-500">
+                                <span class="ml-2 text-sm">Cultural Tours</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" class="rounded text-blue-600 focus:ring-blue-500">
+                                <span class="ml-2 text-sm">Religious Sites</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" class="rounded text-blue-600 focus:ring-blue-500">
+                                <span class="ml-2 text-sm">Local Cuisine</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" class="rounded text-blue-600 focus:ring-blue-500">
+                                <span class="ml-2 text-sm">Photography</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" class="rounded text-blue-600 focus:ring-blue-500">
+                                <span class="ml-2 text-sm">Adventure</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Travel Experience -->
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Travel Experience (Optional)</label>
+                        <textarea class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none" rows="2" placeholder="Share your previous travel experiences or what you hope to discover in Ethiopia"></textarea>
+                    </div>
+
+                    <!-- Terms and Conditions -->
+                    <div class="flex items-center">
+                        <input type="checkbox" required class="rounded text-blue-600 focus:ring-blue-500">
+                        <span class="ml-2 text-sm text-gray-600">
+                            I agree to the <a href="#" class="text-blue-600 hover:underline">Terms of Service</a> and <a href="#" class="text-blue-600 hover:underline">Privacy Policy</a> *
+                        </span>
+                    </div>
+
+                    <!-- Newsletter -->
+                    <div class="flex items-center">
+                        <input type="checkbox" checked class="rounded text-blue-600 focus:ring-blue-500">
+                        <span class="ml-2 text-sm text-gray-600">
+                            Subscribe to Ethiopian travel updates and cultural insights
+                        </span>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-4 rounded-lg transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                        Join Ethiopian Travel Community
+                    </button>
+                </form>
+
+                <div class="mt-6 text-center">
+                    <p class="text-sm text-gray-600">
+                        Already have an account? <a href="#" class="text-blue-600 font-semibold hover:underline">Sign in</a>
+                    </p>
+                </div>
+
+                <div class="mt-6 border-t border-gray-200 pt-6">
+                    <p class="text-xs text-gray-500 text-center">
+                        By registering, you join travelers from 120+ countries exploring Ethiopia's rich heritage
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const passwordInput = document.getElementById('password');
+            const strengthBar = document.querySelector('#passwordStrength div');
+            
+            passwordInput.addEventListener('input', function() {
+                const password = this.value;
+                let strength = 0;
+                
+                if (password.length >= 8) strength += 25;
+                if (/[A-Z]/.test(password)) strength += 25;
+                if (/[a-z]/.test(password)) strength += 25;
+                if (/[0-9]/.test(password)) strength += 25;
+                
+                strengthBar.style.width = strength + '%';
+                
+                if (strength < 50) {
+                    strengthBar.style.backgroundColor = '#ef4444'; // red
+                } else if (strength < 75) {
+                    strengthBar.style.backgroundColor = '#f59e0b'; // amber
+                } else {
+                    strengthBar.style.backgroundColor = '#10b981'; // green
+                }
+            });
+
+            document.getElementById('registrationForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Registration successful! Welcome to our Ethiopian travel community.');
+                this.reset();
+                strengthBar.style.width = '0%';
+            });
+        });
+    </script>
+</body>
+</html>
