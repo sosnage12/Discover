@@ -22,13 +22,23 @@
     }
 
     header {
-      background: rgb(2, 1, 29);
+      background: rgb(29, 15, 1);
       color: rgb(255, 255, 255);
       padding: 15px 0;
       text-align: center;
       font-size: 1.5rem;
       font-weight: bold;
+      justify-content: space-between; 
     }
+    .auth-buttons a {
+  text-decoration: none; /* remove underline from links */
+  margin-left: 10px;     /* spacing between buttons */
+}
+
+.auth-buttons button {
+  padding: 8px 16px;
+  cursor: pointer;
+}
 
     nav {
       background: #5e3434;
@@ -92,7 +102,7 @@
     height: 100%;
     overflow: hidden;
     z-index: -1; /* Keeps video behind content */
-  }
+  }   
 
   .video-background iframe {
   position: absolute;
