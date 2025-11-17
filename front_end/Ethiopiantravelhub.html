@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EthioTravel Hub - Book Flights & Hotels to Ethiopia</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f8f9fa; }
+        .hero { background: linear-gradient(to right, #007bff, #28a745); color: white; padding: 50px 0; text-align: center; }
+        .section { padding: 40px 0; }
+        .card { margin-bottom: 20px; }
+        .dashboard { background-color: #e9ecef; padding: 20px; border-radius: 5px; }
+        .call-section { margin-top: 20px; }
+        .call-button { margin: 5px; }
+        .incoming-call { background-color: #ffc107; color: black; }
+        .outgoing-call { background-color: #17a2b8; color: white; }
+        .auth-required { display: none; } /* Hidden by default, shown if not logged in */
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="#">EthioTravel Hub</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link" href="#flights">Flights</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#hotels">Hotels</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#calls">Call Center</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#dashboard">Consultant Dashboard</a></li>
+                </ul>
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
+                    <li class="nav-item"><a class="nav-link" href="registration.html">Sign Up</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Welcome to EthioTravel Hub</h1>
+            <p>Your one-stop platform for booking flights and hotels to Ethiopia. Powered by global GDS and travel agency tools.</p>
+            <p id="authStatus">Please <a href="login.html">login</a> or <a href="registration.html">sign up</a> to access booking features.</p>
+        </div>
+    </section>
+
+    <!-- Auth Required Modal -->
+    <div id="authModal" class="modal fade" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Authentication Required</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p>You need to log in to book flights or hotels.</p>
+                    <a href="login.html" class="btn btn-primary">Login</a>
+                    <a href="registration.html" class="btn btn-secondary">Sign Up</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Flight Search Section -->
+    <section id="flights" class="section">
+        <div class="container">
+            <h2>Search Flights to Ethiopia</h2>
+            <form id="flightForm" class="row g-3">
+                <div class="col-md-4">
+                    <label for="origin" class="form-label">From (Origin)</label>
+                    <input type="text" class="form-control" id="origin" placeholder="e.g., New York (NYC)" required>
+                </div>
+                <div class="col-md-4">
+                    <label for="destination" class="form-label">To (Destination)</label>
+                    <input type="text" class="form-control" id="destination" value="Addis Ababa (ADD)" readonly>
+                </div>
+                <div class="col-md-2">
+                    <label for="departure" class="form-label">Departure Date</label>
+                    <input type="date" class="form-control" id="departure" required>
+                </div>
+                <div class="col-md-2">
+                    <label for="return" class="form-label">Return Date (Optional)</label>
+                    <input type="date" class="form-control" id="return">
+                </div>
+                <div class="col-12">
+                    <button type="submit" class="btn btn-primary">Search Flights</button>
+                </div>
+            </form>
+            <div id="flightResults" class="mt-4"></div>
+        </div>
+    </section>
+
+    <!-- Hotel Booking Section -->
+    <section id="hotels" class="section bg-light">
+        <div class="container">
+            <h2>Book Hotels in Ethiopia via GDS</h2>
+            <form id="hotelForm" class="row g-3">
+                <div class="col-md-4">
+                    <label for="city" class="form-label">City</label>
+                    <select class="form-control" id="city" required>
+                        <option value="">Select City</option>
+                        <option value="Addis Ababa">Addis Ababa</option>
+                        <option value="Bahir Dar">Bahir Dar</option>
+                        <option value="Axum">Axum</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <label for="checkin" class="form-label">Check-in Date</label>
+                    <input type="date" class="form-control" id="checkin" required>
+                </div>
+                <div class="col-md-3">
+                    <label for="checkout" class="form-label">Check-out Date</label>
+                    <input type="date" class="form-control" id="checkout" required>
+                </div>
+                <div class="col-md-2">
+                    <label for="guests" class="form-label">Guests</label>
+                    <input type="number" class="form-control" id="guests" min="1" value="1" required>
+                </div>
+                <div class="col-12">
+                    <button type="submit" class="btn btn-success">Search Hotels</button>
+                </div>
+            </form>
+            <div id="hotelResults" class="mt-4 row"></div>
+        </div>
+    </section>
+
+    <!-- Call Center Section -->
+    <section id="calls" class="section">
+        <div class="container">
+            <h2>Call Center for Flight Bookings</h2>
+            <p>Handle incoming and outgoing calls for flight bookings. (Simulated for demo; integrate with VoIP like Twilio for real calls.)</p>
+            <div class="call-section">
+                <h4>Incoming Calls</h4>
+                <p>Simulate receiving a call from a customer inquiring about flights.</p>
+                <button id="incomingCallBtn" class="btn incoming-call call-button">Receive Incoming Call</button>
+                <div id="incomingCallModal" class="modal fade" tabindex="-1">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Incoming Call: Customer Inquiry</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                            </div>
+                            <div class="modal-body">
+                                <p>Customer: "I want to book a flight from London to Addis Ababa."</p>
+                                <p>Consultant: Use the flight search above to assist.</p>
+                                <button class="btn btn-success">Accept Call & Book</button>
+                                <button class="btn btn-danger" data-bs-dismiss="modal">Decline</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="call-section">
+                <h4>Outgoing Calls</h4>
+                <p>Initiate calls to customers or airlines for confirmations.</p>
+                <input type="text" id="outgoingNumber" class="form-control" placeholder="Enter phone number (e.g., +1234567890)" style="display: inline-block; width: 70%;">
+                <button id="outgoingCallBtn" class="btn outgoing-call call-button">Make Outgoing Call</button>
+                <div id="outgoingCallModal" class="modal fade" tabindex="-1">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Outgoing Call: Confirmation</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                            </div>
+                            <div class="modal-body">
+                                <p>Calling <span id="calledNumber"></span> for booking confirmation.</p>
+                                <p>Simulated: Call connected. Confirm flight details.</p>
+                                <button class="btn btn-success">Confirm Booking</button>
+                                <button class="btn btn-secondary" data-bs-dismiss="modal">End Call</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Travel Consultant Dashboard -->
+    <section id="dashboard" class="section">
+        <div class="container">
+            <h2>Travel Consultant Dashboard</h2>
+            <p>Manage bookings, view ARC/BSP reports, and handle settlements.</p>
+            <div class="dashboard">
+                <h4>Recent Bookings</h4>
+                <ul id="bookingsList" class="list-group">
+                    <!-- Mock data -->
+                    <li class="list-group-item">Flight: NYC to ADD - Booked on 2023-10-01</li>
+                    <li class="list-group-item">Hotel: Addis Ababa Hilton - Booked on 2023-10-02</li>
+                </ul>
+                <h4 class="mt-4">ARC/BSP Settlement Summary</h4>
+                <p>Total Settlements: $5,000 (Mock Data)</p>
+                <button class="btn btn-info">Generate Report</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-3">
+        <p>&copy; 2023 EthioTravel Hub. All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Check authentication on page load
+        function checkAuth() {
+            const user = localStorage.getItem('user'); // Simulate auth with localStorage
+            if (!user) {
+                document.getElementById('authStatus').style.display = 'block';
+                // Optionally hide booking sections or show modal
+                // For demo, we'll prompt on form submit
+            } else {
+                document.getElementById('authStatus').style.display = 'none';
+            }
+        }
+        checkAuth();
+
+        // Mock Flight Search with Auth Check
+        document.getElementById('flightForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const user = localStorage.getItem('user');
+            if (!user) {
+                const modal = new bootstrap.Modal(document.getElementById('authModal'));
+                modal.show();
+                return;
+            }
+            const origin = document.getElementById('origin').value;
+            const departure = document.getElementById('departure').value;
+            const resultsDiv = document.getElementById('flightResults');
+            resultsDiv.innerHTML = `
+                <div class="card">
+                    <div class="card-body">
+                        <h5>Mock Flight Results</h5>
+                        <p>Flight from ${origin} to Addis Ababa on ${departure}. Price: $500. (Integrate with GDS API for real data.)</p>
+                        <button class="btn btn-primary">Book Now</button>
+                    </div>
+                </div>
+            `;
+        });
+
+        // Mock Hotel Search with Auth Check
+        document.getElementById('hotelForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const user = localStorage.getItem('user');
+            if (!user) {
+                const modal = new bootstrap.Modal(document.getElementById('authModal'));
+                modal.show();
+                return;
+            }
+            const city = document.getElementById('city').value;
+            const checkin = document.getElementById('checkin').value;
+            const resultsDiv = document.getElementById('hotelResults');
+            resultsDiv.innerHTML = `
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5>${city} Hotel</h5>
+                            <p>Check-in: ${checkin}. Price: $100/night. (Via GDS integration.)</p>
+                            <button class="btn btn-success">Book Hotel</button>
+                        </div>
+                    </div>
+                </div>
+            `;
+        });
+
+        // Incoming Call Simulation
+        document.getElementById('incomingCallBtn').addEventListener('click', function() {
+            const modal = new bootstrap.Modal(document.getElementById('incomingCallModal'));
+            modal.show();
+        });
+
+        // Outgoing Call Simulation
+        document.getElementById('outgoingCallBtn').addEventListener('click', function() {
+            const number = document.getElementById('outgoingNumber').value;
+            if (number) {
+                document.getElementById('calledNumber').textContent = number;
+                const modal = new bootstrap.Modal(document.getElementById('outgoingCallModal'));
+                modal.show();
+            } else {
+                alert('Please enter a phone number.');
+            }
+        });
+    </script>
+</body>
+</html>

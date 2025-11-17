@@ -4,17 +4,181 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Welcome to Discover Ethiopia!</title>
-  <link rel="stylesheet" href="style.css"> 
- 
+  <style>
+    /* Reset and base styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Arial', sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: linear-gradient(135deg, #74b9ff, #0984e3); /* Subtle blue gradient background */
+      overflow-x: hidden;
+    }
+
+    /* Header styles */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background: rgba(0, 0, 0, 0.8); /* Semi-transparent dark overlay */
+      color: white;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+    .flag {
+      font-size: 2.5rem;
+      font-weight: bold;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+    .auth-buttons {
+      display: flex;
+      gap: 10px;
+    }
+    .auth-buttons button {
+      padding: 10px 20px;
+      background: #ff6b6b;
+      color: white;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+    .auth-buttons button:hover {
+      background: #e74c3c;
+    }
+
+    /* Navigation styles */
+    nav {
+      background: rgba(0, 0, 0, 0.9);
+      position: fixed;
+      top: 80px; /* Below header */
+      width: 100%;
+      z-index: 999;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      padding: 10px 0;
+    }
+    nav ul li {
+      position: relative;
+      margin: 0 15px;
+    }
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      padding: 10px 15px;
+      display: block;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+    nav ul li a:hover {
+      background: #ff6b6b;
+      border-radius: 5px;
+    }
+    /* Dropdown styles */
+    nav ul li ul {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: rgba(0, 0, 0, 0.9);
+      min-width: 200px;
+      border-radius: 5px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    }
+    nav ul li:hover ul {
+      display: block;
+    }
+    nav ul li ul li {
+      margin: 0;
+    }
+    nav ul li ul li a {
+      padding: 10px;
+    }
+    nav ul li ul li a:hover {
+      background: #0984e3;
+    }
+
+    /* Content section */
+    .content {
+      text-align: center;
+      padding: 150px 20px 50px; /* Space for fixed header/nav */
+      color: white;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    }
+    .content h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      animation: fadeIn 2s ease-in-out;
+    }
+    .content h1:nth-child(2) {
+      font-size: 1.5rem;
+      font-weight: normal;
+    }
+
+    /* Video background */
+    .video-background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      overflow: hidden;
+    }
+    .video-background iframe {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Responsive design */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        padding: 10px 20px;
+      }
+      nav ul {
+        flex-direction: column;
+        align-items: center;
+      }
+      nav ul li {
+        margin: 5px 0;
+      }
+      .content h1 {
+        font-size: 2rem;
+      }
+      .content h1:nth-child(2) {
+        font-size: 1.2rem;
+      }
+    }
+  </style>
 </head>
 <body>
   <header>
     <h1 class="flag">Discover ETHIOPIA</h1>
     <div class="auth-buttons">
-    <a href="registration.html"><button>Sign Up</button></a>
-    <a href="login.html"><button>Login</button></a>
-  </div>
-</header>
+      <a href="registration.html"><button>Sign Up</button></a>
+      <a href="login.html"><button>Login</button></a>
+    </div>
+  </header>
   <nav>
     <ul>
       <li><a href="index.html">Home</a></li>
@@ -25,47 +189,52 @@
           <li><a href="registration.html">Registration</a></li>
         </ul>
       </li>
-      <li><a href="#">About as</a>
-      <ul>
-        <li><a href="contactus.html">contact us</a></li>
-      </ul>
+      <li><a href="#">About us</a>
+        <ul>
+          <li><a href="contactus.html">Contact us</a></li>
+        </ul>
       </li>
       <li><a href="#">News</a>
-          <ul>
-              <li><a href="https://www.thereporterethiopia.com/">Latest News</a></li>
-              <li><a href="https://www.ebc.et/english">Ethiopian broadcasting corporation</a></li>
-          </ul>
+        <ul>
+          <li><a href="https://www.thereporterethiopia.com/">Latest News</a></li>
+          <li><a href="https://www.ebc.et/english">Ethiopian Broadcasting Corporation</a></li>
+        </ul>
       </li>
       <li><a href="#">Adventures</a>
-      <ul>
-        <li><a href="https://www.intrepidtravel.com/ethiopia">click here to find adventures</a></li>
-      </ul>
+        <ul>
+          <li><a href="https://www.intrepidtravel.com/ethiopia">Click here to find adventures</a></li>
+        </ul>
+      </li>
       <li><a href="#">Video Media</a>
-      <ul>
-        <li><a href="https://youtu.be/qrRQKW2-HRY?si=i5TFcdevxzJMrCnD">Top 10 places in ethiopia </a></li>
-        <li><a href="https://youtu.be/1YSoJwXQTiU?si=0MtCVOJatP6VjLMS">wonders of Ethiopia</a></li>
-        <li><a href="https://youtu.be/UU3ZpoAN5Ls?si=GDLQZkeqmaTSKzmc">Life in Ethiopia</a></li>
-      </ul>
+        <ul>
+          <li><a href="https://youtu.be/qrRQKW2-HRY?si=i5TFcdevxzJMrCnD">Top 10 places in Ethiopia</a></li>
+          <li><a href="https://youtu.be/1YSoJwXQTiU?si=0MtCVOJatP6VjLMS">Wonders of Ethiopia</a></li>
+          <li><a href="https://youtu.be/UU3ZpoAN5Ls?si=GDLQZkeqmaTSKzmc">Life in Ethiopia</a></li>
+        </ul>
       </li>
       <li><a href="#">Regional info</a>
-      <ul><li><a href="amhara.html">Amhara</a></li>
-        <li><a href="oromia.html">Oromia</a></li>
-        <li><a href="tigray.html">Tigray</a></li>
-        <li><a href="benishangul.html">Benshangul</a></li>
-        <li><a href="afar.html">Afar</a></li>
-        <li><a href="gambella.html">Gambela</a></li>
-        <li><a href="SNNPR.html">SNNPR</a></li>
-        <li><a href="sidama.html">Sidama</a></li>
-        <li><a href="harari.html">Hareri</a></li>
-        <li><a href="somalia.html">Somalia</a></li>
-      </ul>
+        <ul>
+          <li><a href="amhara.html">Amhara</a></li>
+          <li><a href="oromia.html">Oromia</a></li>
+          <li><a href="tigray.html">Tigray</a></li>
+          <li><a href="benishangul.html">Benshangul</a></li>
+          <li><a href="afar.html">Afar</a></li>
+          <li><a href="gambella.html">Gambela</a></li>
+          <li><a href="SNNPR.html">SNNPR</a></li>
+          <li><a href="sidama.html">Sidama</a></li>
+          <li><a href="harari.html">Hareri</a></li>
+          <li><a href="somalia.html">Somalia</a></li>
+        </ul>
       </li>
       <li><a href="#">Tourguide Agency</a>
-      <ul><li><a href="https://www.rotateethiopiatours.com/">click here to find tour guides</a></li>
-      </ul>
+        <ul>
+          <li><a href="https://www.rotateethiopiatours.com/">Click here to find tour guides</a></li>
+        </ul>
       </li>
-      <li><a href="#">Hotel info</a>
-      <ul><li><li><a href="https://www.hyatt.com/">click here to find hotels</a></li></li></ul>
+      <li><a href="#">Flight booking and hotel info</a>
+        <ul>
+          <li><a href="Ethiopiantravelhub.html">Click here for booking and hotel info</a></li>
+        </ul>
       </li>
     </ul>
   </nav>
@@ -74,14 +243,13 @@
     <h1><strong>Welcome to Discover Ethiopia</strong></h1>
     <h1>Explore properties, adventures, tourist spots, and more!</h1>
   </div>
-<div class="video-background">
-  <iframe
-    src="https://www.youtube.com/embed/K6FjfCuhgrY?autoplay=1&mute=1&loop=1&playlist=K6FjfCuhgrY&controls=0&showinfo=0&modestbranding=1"
-    frameborder="0"
-    allow="autoplay; fullscreen"
-    allowfullscreen>
-  </iframe>
-</div>
- 
+  <div class="video-background">
+    <iframe
+      src="https://www.youtube.com/embed/K6FjfCuhgrY?autoplay=1&mute=1&loop=1&playlist=K6FjfCuhgrY&controls=0&showinfo=0&modestbranding=1"
+      frameborder="0"
+      allow="autoplay; fullscreen"
+      allowfullscreen>
+    </iframe>
+  </div>
 </body>
 </html>
